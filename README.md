@@ -1,50 +1,82 @@
-# Welcome to your Expo app 👋
+# Material UI MVVM Login and Image Gallery
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is a **React.js** project demonstrating a **Login** and **Image Gallery** app, built using **Material UI** components and following the **MVVM (Model-View-ViewModel)** architecture. The application includes a login page where users can enter their credentials, and upon successful login, they are redirected to a page displaying a simple image gallery.
 
-## Get started
+## Table of Contents
 
-1. Install dependencies
+- [Technologies Used](#technologies-used)
+- [Features](#features)
+- [Setup and Installation](#setup-and-installation)
+- [Usage](#usage)
+- [Available Scripts](#available-scripts)
 
-   ```bash
-   npm install
-   ```
+## Technologies Used
 
-2. Start the app
+- **React.js**: JavaScript library for building user interfaces.
+- **Material UI**: A popular React UI framework implementing Google's Material Design.
+- **TypeScript**: A strongly-typed superset of JavaScript.
+- **React Router**: A standard library for routing in React.
 
-   ```bash
-    npx expo start
-   ```
+## Features
 
-In the output, you'll find options to open the app in a
+- **Login Page**: Users are prompted to log in with a valid username (`pengguna`) and password (`masuk`).
+- **Image Gallery**: After logging in, the user is redirected to a page showing three placeholder images.
+- **MVVM Architecture**: The app follows the Model-View-ViewModel architecture, separating the logic, data handling, and UI components.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Setup and Installation
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
+1. Clone this repository:
 ```bash
-npm run reset-project
+git clone https://github.com/your-repository/material-ui-mvvm.git
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2. Navigate to the project directory:
+```bash
+cd material-ui-mvvm
+```
 
-## Learn more
+3. Install dependencies:
+```bash
+npm install
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+4. Start the development server:
+```bash
+npm start
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+4. Start the development server:
+```bash
+npm start
+```
+5. Open your browser and go to `http://localhost:3000` to see the application in action.
 
-## Join the community
+## Usage
 
-Join our community of developers creating universal apps.
+- **Login**:
+- Enter the username `pengguna` and the password `masuk`.
+- Click the "Login" button to validate your credentials.
+- **After Login**:
+- If the credentials are valid, you will be redirected to an image gallery page where you can see three placeholder images.
+- If the credentials are incorrect, an error message will be displayed.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Available Scripts
+
+In the project directory, you can run:
+
+### `$ npm start`
+
+Runs the app in the development mode.  
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.  
+You will also see any lint errors in the console.
+
+### `$ npm run build`
+
+Builds the app for production to the `build` folder.  
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+### `$ npm test`
+
+Launches the test runner in the interactive watch mode.
