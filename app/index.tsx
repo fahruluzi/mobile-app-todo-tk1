@@ -1,5 +1,5 @@
-import TodoScreen from "./views/TodoScreen";
+import LoginScreen from "./views/Login";
 
 export default function Index() {
-  return <TodoScreen />;
+  return <LoginScreen />;
 }
