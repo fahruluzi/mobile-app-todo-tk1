@@ -1,44 +1,26 @@
 import React from 'react';
-import { View, Image, Text, FlatList, StyleSheet } from 'react-native';
+import { Grid, Card, CardMedia, CardContent, Typography, Container } from '@mui/material';
 import { useImageViewModel } from '../viewmodels/ImageViewModel';
 
-const ImageScreen: React.FC = () => {
+const Images: React.FC = () => {
   const { images } = useImageViewModel();
 
   return (
-    <View style={styles.container}>
-      <FlatList
-        data={images}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <View style={styles.card}>
-            <Image source={{ uri: item.url }} style={styles.image} />
-            <Text style={styles.title}>{item.title}</Text>
-          </View>
-        )}
-      />
-    </View>
+    <Container maxWidth="md" style={{ marginTop: '50px' }}>
+      <Grid container spacing={4}>
+        {images.map((image) => (
+          <Grid item key={image.id} xs={12} sm={6} md={4}>
+            <Card>
+              <CardMedia component="img" height="200" image={image.url} alt={image.title} />
+              <CardContent>
+                <Typography align="center">{image.title}</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    justifyContent: 'center',
-  },
-  card: {
-    marginBottom: 20,
-    alignItems: 'center',
-  },
-  image: {
-    width: 300,
-    height: 200,
-  },
-  title: {
-    marginTop: 10,
-    fontSize: 18,
-  },
-});
-
-export default ImageScreen;
+export default Images;

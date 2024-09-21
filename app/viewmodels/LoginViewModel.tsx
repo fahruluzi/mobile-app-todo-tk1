@@ -6,13 +6,12 @@ export const useLoginViewModel = () => {
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string>('');
 
-  // Handle login validation
   const handleLogin = (onSuccess: () => void) => {
     if (UserModel.validateLogin(username, password)) {
-      setError(''); // Clear any previous errors
-      onSuccess(); // Trigger navigation on successful login
+      setError('');
+      onSuccess();
     } else {
-      setError('Incorrect username or password');
+      setError('Invalid username or password');
     }
   };
 

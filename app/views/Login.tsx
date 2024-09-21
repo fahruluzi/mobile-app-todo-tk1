@@ -1,60 +1,52 @@
 import React from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { TextField, Button, Typography, Container, Paper } from '@mui/material';
 import { useRouter } from 'expo-router';
 import { useLoginViewModel } from '../viewmodels/LoginViewModel';
 
-const LoginScreen: React.FC = () => {
+const Login: React.FC = () => {
   const router = useRouter();
   const { username, password, error, setUsername, setPassword, handleLogin } = useLoginViewModel();
 
   const onLoginSuccess = () => {
-    router.push('/images'); // Navigate to image gallery upon successful login
+    router.push('/images');
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Username"
-        value={username}
-        onChangeText={setUsername}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        value={password}
-        secureTextEntry
-        onChangeText={setPassword}
-      />
-      {error ? <Text style={styles.error}>{error}</Text> : null}
-      <Button title="Login" onPress={() => handleLogin(onLoginSuccess)} />
-    </View>
+    <Container maxWidth="xs">
+      <Paper elevation={3} style={{ padding: '20px', marginTop: '50px' }}>
+        <Typography variant="h5" align="center" gutterBottom>
+          Login
+        </Typography>
+        <TextField
+          label="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          variant="outlined"
+          fullWidth
+          margin="normal"
+        />
+        <TextField
+          label="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          type="password"
+        />
+        {error && <Typography color="error">{error}</Typography>}
+        <Button
+          fullWidth
+          variant="contained"
+          color="primary"
+          onClick={() => handleLogin(onLoginSuccess)}
+          style={{ marginTop: '20px' }}
+        >
+          Login
+        </Button>
+      </Paper>
+    </Container>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    padding: 20,
-  },
-  title: {
-    fontSize: 24,
-    textAlign: 'center',
-    marginBottom: 20,
-  },
-  input: {
-    borderWidth: 1,
-    padding: 10,
-    marginBottom: 10,
-    borderRadius: 5,
-  },
-  error: {
-    color: 'red',
-    textAlign: 'center',
-    marginBottom: 10,
-  },
-});
-
-export default LoginScreen;
+export default Login;
